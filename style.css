@@ -1,17 +1,38 @@
-﻿body {
-    background-color: antiquewhite
+﻿* {
+    font-family: "微軟正黑體",sans-serif,Arial;
 }
 
-.grid {
-    width: 200px;
-    height: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: yellow
+
+body {
+    background-color: antiquewhite;
 }
 
-    .grid div {
-        width: 20px;
-        height: 20px;
-        background-color: red
+.box {
+    margin-top: 100px;
+    padding: 20px;
+    border: solid 2px #0094ff;
+    border-radius: 5px;
+}
+
+.screen {
+    width: 220px;
+    border: solid 2px #0094ff;
+    border-radius: 10px;
+    background-color: #759FC9;
+    margin: 0 auto;
+}
+
+    .screen .grid {
+        width: 200px;
+        height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #ff0000;
+        margin: 10px auto;
     }
+
+        .screen .grid div {
+            width: 20px;
+            height: 20px;
+            background-color: #3250a8;
+        }
