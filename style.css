@@ -8,10 +8,14 @@ body {
 }
 
 .box {
-    margin-top: 100px;
+    margin: 150px;
     padding: 20px;
     border: solid 2px #0094ff;
     border-radius: 5px;
+}
+
+.leftInfo {
+    margin-left: 100px;
 }
 
 .screen {
@@ -34,5 +38,40 @@ body {
         .screen .grid div {
             width: 20px;
             height: 20px;
-            background-color: #3250a8;
         }
+
+.piece {
+    background-color: burlywood;
+}
+
+
+.smallScreen {
+    width: 95px;
+    height: 95px;
+    border: solid 2px black;
+    border-radius: 10px;
+    background-color: #759FC9;
+    position: relative;
+    margin: 0 auto;
+}
+
+    .smallScreen .smallGrid {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #ff0000;
+        left: 5px;
+        top: 5px;
+    }
+
+        .smallScreen .smallGrid div {
+            width: 20px;
+            height: 20px;
+        }
+
+
+.controlInfo {
+    margin: 0 auto;
+}
