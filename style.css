@@ -4,14 +4,13 @@
 
 
 body {
-    background-color: antiquewhite;
+    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
 }
 
 .box {
     margin: 100px;
     padding: 20px;
-    border: solid 2px #0094ff;
-    border-radius: 5px;
+    border: solid 2px #787878;
 }
 
 .leftInfo {
@@ -20,7 +19,7 @@ body {
 
 .screen {
     width: 220px;
-    border: solid 2px #0094ff;
+    border: solid 2px #787878;
     border-radius: 10px;
     background-color: #759FC9;
     margin: 0 auto;
@@ -48,7 +47,7 @@ body {
 .smallScreen {
     width: 95px;
     height: 95px;
-    border: solid 2px black;
+    border: solid 2px #787878;
     border-radius: 10px;
     background-color: #759FC9;
     position: relative;
