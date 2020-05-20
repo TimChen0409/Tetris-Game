@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     const grid = document.querySelector('.grid');
     let squares = Array.from(document.querySelectorAll('.grid div'));
-    const ScoreDisplay = document.querySelector('#score');
-    const StartBtn = document.querySelector('#start-button');
+    const scoreDisplay = document.querySelector('#score');
+    const startBtn = document.querySelector('#start-button');
     const width = 10;
+    let score = 0;
     let timerId;
+    let nextRandom = 0;
+    const colors = ['#033F63', '#28666E', '#7C9885', '#B5B682', '#DF99F0'];
 
 
     //設定各種類方塊
@@ -71,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function drawPiece() {
         currentPiece.forEach(index => {
             squares[currentPosition + index].classList.add('piece');
+            squares[currentPosition + index].style.backgroundColor = colors[random];
 
         });
     }
@@ -79,11 +83,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function unDrawPiece() {
         currentPiece.forEach(index => {
             squares[currentPosition + index].classList.remove('piece');
-
+            squares[currentPosition + index].style.backgroundColor = '';
         });
     }
-
-    //timerId = setInterval(moveDown, 500);
 
     function moveDown() {
         unDrawPiece();
@@ -107,9 +109,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function moveRight() {
         unDrawPiece();
-        const atLeftEdge = currentPiece.some(index => (currentPosition + index) % width === width - 1);//碰到右邊時 餘數會為9
+        const atRightEdge = currentPiece.some(index => (currentPosition + index) % width === width - 1);//碰到右邊時 餘數會為9
 
-        if (!atLeftEdge) {//如果未接觸左邊則位置-1
+        if (!atRightEdge) {//如果未接觸左邊則位置-1
             currentPosition += 1;
         }
         if (currentPiece.some(index => squares[currentPosition + index].classList.contains('bottom'))) {//如果接觸到已經freeze的區域則再回到原位
@@ -122,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function rotatePiece() {
         unDrawPiece();
         currentRotation++;
+
         if (currentRotation === currentPiece.length) {//回復到原本角度
             currentRotation = 0;
         }
@@ -141,6 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             drawPiece();
             displayNextPiece();
+            addScore();
+            gaveOver();
         }
     }
 
@@ -148,8 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //顯示下一個方塊
     const displayPieces = document.querySelectorAll('.smallGrid div');
     const displayWidth = 4;
-    let displayIndex = 0;
-    let nextRandom = 0;
+    const displayIndex = 0;
 
     const nextPiece = [
         [1, displayWidth + 1, displayWidth * 2 + 1, 2],  // lPiece
@@ -163,24 +167,55 @@ document.addEventListener("DOMContentLoaded", function () {
         //清除整個區塊內的方塊
         displayPieces.forEach(square => {
             square.classList.remove('piece');
+            square.style.backgroundColor = '';
         })
         nextPiece[nextRandom].forEach(index => {
             displayPieces[displayIndex + index].classList.add('piece');
+            displayPieces[displayIndex + index].style.backgroundColor = colors[nextRandom];
         });
     }
 
 
-    StartBtn.addEventListener('click', () => {
+    startBtn.addEventListener('click', () => {
         if (timerId) {
             clearInterval(timerId);
             timerId = null;
         } else {
             drawPiece();
             timerId = setInterval(moveDown, 500);
-            //nextRandom = Math.floor(Math.random() * pieces.length);
+            nextRandom = Math.floor(Math.random() * pieces.length);
             displayNextPiece();
         }
 
     });
+
+
+    function addScore() {
+        for (let i = 0; i < 200; i += width) {
+            const row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
+
+            if (row.every(x => squares[x].classList.contains('bottom'))) {
+                score += 10;
+                scoreDisplay.innerHTML = score;
+                row.forEach(x => {
+                    squares[x].classList.remove('piece', 'bottom');
+                    squares[x].style.backgroundColor = '';
+                });
+
+                //刪除填滿的row再新增一條空的row
+                const removePieces = squares.splice(i, width);
+                squares = removePieces.concat(squares)
+                squares.forEach(x => grid.appendChild(x));
+            }
+
+        }
+    }
+
+    function gaveOver() {
+        if (currentPiece.some(index => squares[currentPosition + index + width].classList.contains('bottom'))) {
+            alert('You are lose,Your score:' + scoreDisplay.innerHTML);
+            clearInterval(timerId);
+        }
+    }
 
 });

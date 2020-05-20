@@ -8,7 +8,7 @@ body {
 }
 
 .box {
-    margin: 150px;
+    margin: 100px;
     padding: 20px;
     border: solid 2px #0094ff;
     border-radius: 5px;
@@ -31,7 +31,7 @@ body {
         height: 400px;
         display: flex;
         flex-wrap: wrap;
-        background-color: #ff0000;
+        background-color: #FFE4E1;
         margin: 10px auto;
     }
 
@@ -61,7 +61,7 @@ body {
         height: 80px;
         display: flex;
         flex-wrap: wrap;
-        background-color: #ff0000;
+        background-color: #FFE4E1;
         left: 5px;
         top: 5px;
     }
