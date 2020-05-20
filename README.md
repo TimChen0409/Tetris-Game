@@ -1,5 +1,7 @@
 # Tetris-Game
  Use the Fundamentals of JavaScript to build Tetris
+ [Demo](https://timchen0409.github.io/Tetris-Game/)
+
 
 * JavaScript Method
   * addEventListener()
