@@ -213,11 +213,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function gaveOver() {
         if (currentPiece.some(index => squares[currentPosition + index + width].classList.contains('bottom'))) {
-            var end = setTimeout(function () {
-                alert('You are lose!\nYour score¡G' + scoreDisplay.innerHTML);
-                clearInterval(timerId);
-                window.location.reload();
-            }, 200);
+            clearInterval(timerId);
+            setTimeout(function () {
+                swal('You are lose!\nYour score is : ' + scoreDisplay.innerHTML).then(() => {
+                    window.location.reload();
+                });
+            }, 300);
         }
 
     }

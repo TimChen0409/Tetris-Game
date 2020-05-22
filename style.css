@@ -17,6 +17,10 @@ body {
     margin-left: 100px;
 }
 
+.rightInfo {
+    margin-right: 100px;
+}
+
 .screen {
     width: 220px;
     border: solid 2px #787878;

@@ -3,6 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Tetris</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -14,7 +15,8 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="leftInfo">
-                    <h3 class="font-italic">Score：<span id="score">0</span></h3>
+                    <img src="title.png" alt="" style="width:100%" />
+                    <h4>Score：<span id="score">0</span></h4>
                     <button id="start-button" class="btn btn-info">Start/Pause</button>
                 </div>
             </div>
@@ -235,35 +237,37 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="font-italic text-center m-2">Next</div>
-                <div class="smallScreen">
-                    <div class="smallGrid">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                <div class="rightInfo">
+                    <div class="h4 text-center m-2">Next</div>
+                    <div class="smallScreen">
+                        <div class="smallGrid">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
-                </div>
-                <div class="font-italic text-center m-2">Control</div>
-                <div class="controlInfo">
-                    <ul class="list-group">
-                        <li class="list-group-item">↑：Rotate</li>
-                        <li class="list-group-item">←：Move Left</li>
-                        <li class="list-group-item">→：Move Right</li>
-                        <li class="list-group-item">↓：Move Down</li>
-                    </ul>
+                    <div class="h4 text-center m-2">Control</div>
+                    <div class="controlInfo">
+                        <ul class="list-group">
+                            <li class="list-group-item">↑：Rotate</li>
+                            <li class="list-group-item">←：Move Left</li>
+                            <li class="list-group-item">→：Move Right</li>
+                            <li class="list-group-item">↓：Move Down</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -274,5 +278,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="./app.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 </html>
