@@ -21,3 +21,6 @@
   * add()
   * remove()
   * contains()
+
+---
+Use sweetalert.js to replace the traditional JavaScript Alert
