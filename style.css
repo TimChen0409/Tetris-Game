@@ -1,11 +1,16 @@
 ﻿* {
-    font-family: "微軟正黑體",sans-serif,Arial;
+    font-family: "Sriracha", cursive,"微軟正黑體",sans-serif,Arial;
 }
 
 html,body{
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+    background: radial-gradient(
+        circle,
+        rgba(175, 196, 174, 1) 0%,
+        rgba(104, 204, 191, 1) 50%,
+        rgba(94, 191, 178, 1) 100%
+      );
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -17,7 +22,9 @@ body {
 .box {
     margin: 100px;
     padding: 10px;
-    border: solid 2px #787878;
+}
+.box h2{
+    letter-spacing: 2px;
 }
 
 .leftInfo {
