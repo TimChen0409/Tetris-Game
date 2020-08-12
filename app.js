@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const colors = ['#033F63', '#28666E', '#7C9885', '#B5B682', '#DF99F0'];
 
 
-    //³]©w¦UºØÃþ¤è¶ô
+    //è¨­å®šå„ç¨®é¡žæ–¹å¡Š
     const lPiece = [
         [1, width + 1, width * 2 + 1, 2],
         [width, width + 1, width + 2, width * 2 + 2],
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pieces = [lPiece, zPiece, tPiece, oPiece, iPiece];
 
 
-    //Áä½LÄ²µo¨Æ¥ó
+    //éµç›¤è§¸ç™¼äº‹ä»¶
     function control(e) {
         if (e.keyCode === 39)
             moveRight();
@@ -63,14 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('keydown', control);
 
 
-    //²£¥ÍÀH¾÷¤è¶ô
-    let random = Math.floor(Math.random() * pieces.length);//ÀH¾÷²£¥Í0~4
+     //ç”¢ç”Ÿéš¨æ©Ÿæ–¹å¡Š
+    let random = Math.floor(Math.random() * pieces.length);//ï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0~4
     let currentRotation = 0;
     let currentPiece = pieces[random][currentRotation];
 
 
     let currentPosition = 4;
-    //Ã¸»s¤è¶ô
+    //ç¹ªè£½æ–¹å¡Š
     function drawPiece() {
         currentPiece.forEach(index => {
             squares[currentPosition + index].classList.add('piece');
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    //²¾°£¤è¶ô
+    //ç§»é™¤æ–¹å¡Š
     function unDrawPiece() {
         currentPiece.forEach(index => {
             squares[currentPosition + index].classList.remove('piece');
@@ -96,12 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function moveLeft() {
         unDrawPiece();
-        const atLeftEdge = currentPiece.some(index => (currentPosition + index) % width === 0);//¸I¨ì¥ªÃä®É ¾l¼Æ·|¬°0
+        const atLeftEdge = currentPiece.some(index => (currentPosition + index) % width === 0);//ç¢°åˆ°å·¦é‚Šæ™‚ é¤˜æ•¸æœƒç‚º0
 
-        if (!atLeftEdge) {//¦pªG¥¼±µÄ²¥ªÃä«h¦ì¸m-1
+        if (!atLeftEdge) {//å¦‚æžœæœªæŽ¥è§¸å·¦é‚Šå‰‡ä½ç½®-1
             currentPosition -= 1;
         }
-        if (currentPiece.some(index => squares[currentPosition + index].classList.contains('bottom'))) {//¦pªG±µÄ²¨ì¤w¸gfreezeªº°Ï°ì«h¦A¦^¨ì­ì¦ì
+        if (currentPiece.some(index => squares[currentPosition + index].classList.contains('bottom'))) {//å¦‚æžœæŽ¥è§¸åˆ°å·²ç¶“freezeçš„å€åŸŸå‰‡å†å›žåˆ°åŽŸä½
             currentPosition += 1;
         }
         drawPiece();
@@ -109,12 +109,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function moveRight() {
         unDrawPiece();
-        const atRightEdge = currentPiece.some(index => (currentPosition + index) % width === width - 1);//¸I¨ì¥kÃä®É ¾l¼Æ·|¬°9
+        const atRightEdge = currentPiece.some(index => (currentPosition + index) % width === width - 1);//ç¢°åˆ°å³é‚Šæ™‚ é¤˜æ•¸æœƒç‚º9
 
-        if (!atRightEdge) {//¦pªG¥¼±µÄ²¥ªÃä«h¦ì¸m-1
+        if (!atRightEdge) {//å¦‚æžœæœªæŽ¥è§¸å·¦é‚Šå‰‡ä½ç½®-1
             currentPosition += 1;
         }
-        if (currentPiece.some(index => squares[currentPosition + index].classList.contains('bottom'))) {//¦pªG±µÄ²¨ì¤w¸gfreezeªº°Ï°ì«h¦A¦^¨ì­ì¦ì
+        if (currentPiece.some(index => squares[currentPosition + index].classList.contains('bottom'))) {//å¦‚æžœæŽ¥è§¸åˆ°å·²ç¶“freezeçš„å€åŸŸå‰‡å†å›žåˆ°åŽŸä½
             currentPosition -= 1;
         }
         drawPiece();
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
         unDrawPiece();
         currentRotation++;
 
-        if (currentRotation === currentPiece.length) {//¦^´_¨ì­ì¥»¨¤«×
+        if (currentRotation === currentPiece.length) {//å›žå¾©åˆ°åŽŸæœ¬è§’åº¦
             currentRotation = 0;
         }
         currentPiece = pieces[random][currentRotation];
@@ -136,9 +136,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentPiece.some(index => squares[currentPosition + index + width].classList.contains('bottom'))) {
             currentPiece.forEach(index => squares[currentPosition + index].classList.add('bottom'));
 
-            //Ã¸»s¤@­Ó·sªº¤è¶ô
+            //ç¹ªè£½ä¸€å€‹æ–°çš„æ–¹å¡Š
             random = nextRandom;
-            nextRandom = Math.floor(Math.random() * pieces.length);//ÀH¾÷²£¥Í0~4
+            nextRandom = Math.floor(Math.random() * pieces.length);//éš¨æ©Ÿç”¢ç”Ÿ0~4
             currentPiece = pieces[random][currentRotation];
             currentPosition = 4;
 
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    //Åã¥Ü¤U¤@­Ó¤è¶ô
+    //é¡¯ç¤ºä¸‹ä¸€å€‹æ–¹å¡Š
     const displayPieces = document.querySelectorAll('.smallGrid div');
     const displayWidth = 4;
     const displayIndex = 0;
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ]
 
     function displayNextPiece() {
-        //²M°£¾ã­Ó°Ï¶ô¤ºªº¤è¶ô
+        //æ¸…é™¤æ•´å€‹å€å¡Šå…§çš„æ–¹å¡Š
         displayPieces.forEach(square => {
             square.classList.remove('piece');
             square.style.backgroundColor = '';
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     squares[x].style.backgroundColor = '';
                 });
 
-                //§R°£¶ñº¡ªºrow¦A·s¼W¤@±øªÅªºrow
+                //åˆªé™¤å¡«æ»¿çš„rowå†æ–°å¢žä¸€æ¢ç©ºçš„row
                 const removePieces = squares.splice(i, width);
                 squares = removePieces.concat(squares)
                 squares.forEach(x => grid.appendChild(x));
